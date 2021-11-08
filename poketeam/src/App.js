@@ -3,14 +3,13 @@ import './App.css';
 import Home from "./components/Home";
 import Team from "./components/Team";
 import Teams from "./components/Teams";
+import Header from "./components/Header";
 
 function App() {
   return (
     <div className="App">
-      <div className="App-header">
-        <img src='poketeam.png' />
-      </div>
-      <Teams />
+      <Header className="App-header"/>
+      <Home />
     </div>
   );
 }
