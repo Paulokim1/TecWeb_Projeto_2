@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import Home from "./components/Home";
+import Team from "./components/Team";
+import Teams from "./components/Teams";
 import Header from "./components/Header";
 
 function App() {
@@ -8,7 +10,6 @@ function App() {
     <div className="App">
       <Header className="App-header"/>
       <Home />
-      
     </div>
   );
 }
