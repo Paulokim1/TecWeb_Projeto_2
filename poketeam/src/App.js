@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import Home from "./components/Home";
-import Teams from "./components/Teams"
+import Team from "./components/Team";
+import Teams from "./components/Teams";
 
 function App() {
   return (
