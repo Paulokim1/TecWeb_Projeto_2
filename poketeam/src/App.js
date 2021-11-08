@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Home from "./components/Home";
+import Teams from "./components/Teams"
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
       <div className="App-header">
         <img src='poketeam.png' />
       </div>
-      <Home />
+      <Teams />
     </div>
   );
 }
