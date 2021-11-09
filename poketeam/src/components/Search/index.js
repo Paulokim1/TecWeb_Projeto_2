@@ -6,35 +6,42 @@ import { useState, useEffect } from "react";
 export default function Home(props) {
 
   const [pokemon, setPokemon] = useState("")
+  const [pokemonType, setPokemonType] = useState("")
+  const [searchPokemon, setSearchPokemon] = useState("")
+  
 
-  const DadosAPI = (res) => {
-      axios
-        .get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
-        .then((res) => setPokemon(res.name));
 
-      return console.log(pokemon)
-    }
+  const DadosAPI = (event) => {
+    event.preventDefault();
+    axios
+      .get(`https://pokeapi.co/api/v2/pokemon/${searchPokemon}`)
+      .then((res) => {
+        setPokemon(res.data.name)
+        setPokemonType(res.data.types[0].type.name)
+        console.log(res)
+      });
 
-  const contentChanged = (event) =>{
-    setPokemon(event.target.value);
+  }
+
+  const searchChanged = (event) =>{
+    setSearchPokemon(event.target.value);
 }
 
   return (
     <div className = 'TeamsContainer'>
-
-
       <form className="form-card" onSubmit={DadosAPI}>
             <input
             className="form-card-title"
             type="text"
             name="titulo"
             placeholder="Título"
-            value={pokemon}
-            onChange={contentChanged}
+            value={searchPokemon}
+            onChange={searchChanged}
             />
             <button className="btn" type="submit">Criar</button>
       </form>
       <div> O nome do pokemon é: {pokemon} </div>
+      <div> O tipo do pokemon é: {pokemonType} </div>
 
     </div>
   );
