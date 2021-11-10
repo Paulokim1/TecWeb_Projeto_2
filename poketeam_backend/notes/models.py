@@ -10,8 +10,3 @@ class Note(models.Model):
         return f"{self.id}. {self.title}"
 
 
-{
-    "id" : 1, 
-    "title":"Pikachu",
-    "content":"Eletric"
-}

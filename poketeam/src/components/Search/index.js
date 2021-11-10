@@ -18,10 +18,9 @@ export default function Home(props) {
       .then((res) => {
         setPokemon(res.data.name)
         setPokemonType(res.data.types[0].type.name)
-        console.log(res)
-      });
-
-  }
+        axios.post('http://localhost:8000/api/notes/', {'title':pokemon,'content':pokemonType})
+      })
+  ;}
 
   const searchChanged = (event) =>{
     setSearchPokemon(event.target.value);

@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'pokemon.apps.PokemonConfig',
     'notes.apps.NotesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
