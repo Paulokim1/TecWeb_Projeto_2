@@ -19,12 +19,39 @@
     max-width: 40%;
 }
 
+.form-card-title{
+    margin: 1rem;
+}
+
 .img{
     border: 0.1rem solid black;
     margin: 1rem;
     padding: 1rem;
     width: 2rem;
     height: 2rem;
+}
+
+.form-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 1rem;
+    border: 0.1rem solid black;
+    border-radius: 1rem;
+    background-color: #dddddd;
+    padding: 1rem;
+}
+
+.informacoes{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 1rem;
+    border: 0.1rem solid black;
+    border-radius: 1rem;
+    background-color: #356abc;
+    padding: 1rem;
+
 }
 
 .TeamName{
