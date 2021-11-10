@@ -26,6 +26,7 @@ export default function Home(props) {
     setSearchPokemon(event.target.value);
 }
 
+
   return (
     <div className = 'TeamsContainer'>
       <form className="form-card" onSubmit={DadosAPI}>
@@ -39,9 +40,11 @@ export default function Home(props) {
             />
             <button className="btn" type="submit">Criar</button>
       </form>
-      <div> O nome do pokemon é: {pokemon} </div>
-      <div> O tipo do pokemon é: {pokemonType} </div>
 
+      <div className="informacoes">
+        <div> Pokemon name is: {pokemon} </div>
+        <div> Pokemon type is: {pokemonType} </div>
+      </div>
     </div>
   );
 }
