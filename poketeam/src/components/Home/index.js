@@ -6,12 +6,6 @@ export default function Home(props) {
   return (
     <div className = 'homeContainer'>
       <Link to = "/team">
-        <button className = 'btn'>
-          Criar
-        </button>
-      </Link>
-
-      <Link to = "/teams">
         <button className = 'btn'> 
           Times
         </button>

@@ -8,42 +8,49 @@ export default function Home(props) {
   const [pokemon, setPokemon] = useState("")
   const [pokemonType, setPokemonType] = useState("")
   const [searchPokemon, setSearchPokemon] = useState("")
-  
+  const [sprite, setSprite] = useState("")
 
-
-  const DadosAPI = (event) => {
+  const findPokemon = (event) => {
     event.preventDefault();
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${searchPokemon}`)
       .then((res) => {
         setPokemon(res.data.name)
         setPokemonType(res.data.types[0].type.name)
-        axios.post('http://localhost:8000/api/notes/', {'title':pokemon,'content':pokemonType})
-      })
+        setSprite(res.data.sprites.versions['generation-viii'].icons.front_default)
+        })
   ;}
+
+  const addPokemon = (event) => {
+    event.preventDefault();
+    if (pokemon){
+      if (pokemonType){
+        axios.post('http://localhost:8000/api/notes/', {'title':pokemon,'content':pokemonType})
+      }
+    }
+  }
 
   const searchChanged = (event) =>{
     setSearchPokemon(event.target.value);
-}
+  }
 
 
   return (
     <div className = 'TeamsContainer'>
-      <form className="form-card" onSubmit={DadosAPI}>
-            <input
-            className="form-card-title"
-            type="text"
-            name="titulo"
-            placeholder="Título"
-            value={searchPokemon}
-            onChange={searchChanged}
-            />
-            <button className="btn" type="submit">Criar</button>
-      </form>
+      <input
+      className="form-card-title"
+      type="text"
+      name="titulo"
+      placeholder="Type the pokemon's name"
+      value={searchPokemon}
+      onChange={searchChanged}
+      />
+      <button className="btn" onClick={findPokemon}>Search</button>
+      <button className="btn" onClick={addPokemon}>Add</button>
 
       <div className="informacoes">
-        <div> Pokemon name is: {pokemon} </div>
-        <div> Pokemon type is: {pokemonType} </div>
+        <div> Pokemon's type is: {pokemonType} </div>
+        <img src = {`${sprite}`}></img>
       </div>
     </div>
   );

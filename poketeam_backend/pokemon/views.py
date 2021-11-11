@@ -7,7 +7,7 @@ from .serializers import PokemonSerializer
 
 # SUAS OUTRAS FUNÇÕES CONTINUAM AQUI
 
-@api_view(['GET', 'POST'])
+@api_view(['GET', 'POST', 'DELETE'])
 def api_pokemon(request, pokemon_id):
     try:
         pokemon = Pokemon.objects.get(id=pokemon_id)
@@ -16,7 +16,6 @@ def api_pokemon(request, pokemon_id):
     serialized_pokemon = PokemonSerializer(pokemon)
     return Response(serialized_pokemon.data)
 
-@api_view(['GET', 'POST'])
 def api_pokemon_list(request):
     if request.method == 'POST':
         new_pokemon_data = request.data
@@ -24,7 +23,18 @@ def api_pokemon_list(request):
         pokemon.name = new_pokemon_data['name']
         pokemon.type = new_pokemon_data['type']
         pokemon.save()
-
+    if request.method == "DELETE":
+        pokemon_id  = request.data['id']
+        pokemon = Pokemon.objects.get(id = pokemon_id)
+        pokemon.delete()
     pokemon = Pokemon.objects.all()
     serialized_pokemon = PokemonSerializer(pokemon, many = True)
+    return Response(serialized_pokemon.data)
+
+def api_pokemon(request, pokemon_id):
+    try:
+        pokemon = Pokemon.objects.get(id=pokemon_id)
+    except Pokemon.DoesNotExist:
+        raise Http404()
+    serialized_pokemon = PokemonSerializer(pokemon)
     return Response(serialized_pokemon.data)
