@@ -2,6 +2,7 @@ import React from "react";
 import "./index.css";
 import axios from "axios"
 import { useState, useEffect } from "react";
+import PokemonBox from "../PokemonBox";
 
 export default function Home(props) {
 
@@ -52,6 +53,13 @@ export default function Home(props) {
         <div> Pokemon's type is: {pokemonType} </div>
         <img src = {`${sprite}`}></img>
       </div>
+
+      <PokemonBox />
+      <PokemonBox />
+      <PokemonBox />
+      <PokemonBox />
+      <PokemonBox />
+      <PokemonBox />
     </div>
   );
 }
