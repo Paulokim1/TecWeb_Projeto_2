@@ -1,43 +1,40 @@
-.homeContainer{
-    display: flex;
+.pokemonBoxContainer{
+    display:flex;
     flex-direction: column;
-    width: 90%;
-    justify-content: center;
-    margin: 1rem;
-}
 
-.btn{
-    width: 18rem;
-    height: 10rem;
-    margin: 1rem;
-}
-
-.Teamcontainer{
-    display: flex;
-    flex-wrap: wrap;
     border: 0.1rem solid black;
-    border-radius: 2rem;
-    justify-content: center;
-    width: 100%;
-    margin: 2rem;
-    background-color: gold;
+    max-width: 22rem;
+    height: 8rem;
 }
 
-.pokemon1{
+.headerPokemonBox{
+    display: flex;
+    flex-direction: row-reverse;
+    border-bottom: 0.1rem solid black;
+    
+}
+
+.delete{
+    background-color: red;
+    margin: 0.1rem;
+}
+
+.bodyPokemonBox{
     display: flex;
     flex-direction: row;
-    border: 0.1rem solid black;
-    border-radius: 2rem;
-    padding: 2rem;
-    margin: 2rem;
-    background-color:steelblue;
+    justify-content: space-around;
+    
 }
 
-.features{
-    display: flex;
+.imagemPokemon{
+    width: 6rem;
+    height: 6rem;
+}
+
+.infos{
+    display:flex;
     flex-direction: column;
-    border: 0.1rem solid black;
-    border-radius: 2rem;
-    padding: 1rem;
-    margin: 1rem;
+    justify-content: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
