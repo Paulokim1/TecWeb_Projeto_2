@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { NavLink } from "react-router-dom";
 import Home from "./components/Home";
-import PokemonBox from "../src/components/PokemonBox";
+import PokemonBox from "./components/PokemonBox";
 import Team from "./components/Team";
 import Header from "./components/Header";
 import Search from "./components/Search";
@@ -19,7 +19,6 @@ function App() {
           <Route path = "/team" element = {<Team />} />
           <Route path = "/search" element = {<Search />} />
           <Route path = "/pokemonBox" element = {<PokemonBox />} />
-            
         </Routes>
 
       </div>

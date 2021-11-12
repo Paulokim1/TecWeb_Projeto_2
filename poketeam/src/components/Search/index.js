@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css";
 import axios from "axios"
 import { useState, useEffect } from "react";
-import PokemonBox from "../PokemonBox";
+
 
 export default function Home(props) {
 
@@ -26,7 +26,7 @@ export default function Home(props) {
     event.preventDefault();
     if (pokemon){
       if (pokemonType){
-        axios.post('http://localhost:8000/api/notes/', {'title':pokemon,'content':pokemonType})
+        axios.post('http://localhost:8000/api/notes/', {'title':pokemon,'content':pokemonType, 'img':sprite})
       }
     }
   }
@@ -34,7 +34,6 @@ export default function Home(props) {
   const searchChanged = (event) =>{
     setSearchPokemon(event.target.value);
   }
-
 
   return (
     <div className = 'TeamsContainer'>
@@ -54,12 +53,7 @@ export default function Home(props) {
         <img src = {`${sprite}`}></img>
       </div>
 
-      <PokemonBox />
-      <PokemonBox />
-      <PokemonBox />
-      <PokemonBox />
-      <PokemonBox />
-      <PokemonBox />
+      
     </div>
   );
 }
